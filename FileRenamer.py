@@ -16,14 +16,14 @@ def parseArgs(args):
 
 def renameFiles(path, text=''): ### Function to rename files in a single folder
     for count, filename in enumerate(os.listdir(path)):
-        local_count = 0
+        local_count = 1
         old_path_name = os.path.join(path, filename)
         if os.path.isfile(old_path_name):
-            replecement_regexp = '\s\d\d\d\s' ### Replace with the regexp that matches what you want to replace
-            replacement_text = " {}E{:02d} ".format(text,local_count+1) ### Replace with the text you want to be replaced by replecement_regexp
+            replecement_regexp = '\s\d\d\s' ### Replace with the regexp that matches what you want to replace
+            replacement_text = " {}E{:02d} ".format(text,count) ### Replace with the text you want to be replaced by replecement_regexp
             new_path_name = os.path.join(path, re.sub(replecement_regexp, replacement_text, filename))
             os.rename(old_path_name, new_path_name)
-            local_count = local_count+1       
+            local_count += 1
 
 def renameFilesInFolders(path): ### Function to rename files in a multiple folders
     for count, filename in enumerate(os.listdir(path)):
