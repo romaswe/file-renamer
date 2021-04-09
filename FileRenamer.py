@@ -20,7 +20,7 @@ def renameFiles(path, text=''): ### Function to rename files in a single folder
         old_path_name = os.path.join(path, filename)
         if os.path.isfile(old_path_name):
             replecement_regexp = '\s\d\d\s' ### Replace with the regexp that matches what you want to replace
-            replacement_text = " {}E{:02d} ".format(text,count) ### Replace with the text you want to be replaced by replecement_regexp
+            replacement_text = " {}E{:02d} ".format(text,local_count) ### Replace with the text you want to be replaced by replecement_regexp
             new_path_name = os.path.join(path, re.sub(replecement_regexp, replacement_text, filename))
             os.rename(old_path_name, new_path_name)
             local_count += 1
