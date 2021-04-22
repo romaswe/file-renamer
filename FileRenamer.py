@@ -15,8 +15,8 @@ def parseArgs(args):
         print("For more info how to use this script use -h or --help")
 
 def renameFiles(path, text=''): ### Function to rename files in a single folder
+    local_count = 1
     for count, filename in enumerate(os.listdir(path)):
-        local_count = 1
         old_path_name = os.path.join(path, filename)
         if os.path.isfile(old_path_name):
             replecement_regexp = '\s\d\d\s' ### Replace with the regexp that matches what you want to replace
